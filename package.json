@@ -1,0 +1,27 @@
+{
+	"name": "lrcli",
+	"version": "1.0.0",
+	"description": "Simple tests of Loopring SDK",
+	"main": "index.js",
+	"author": "Wei Wang <ww@9rivers.com>",
+	"license": "MIT",
+	"private": true,
+	"type": "module",
+	"build": {
+		"files": [
+			"build/**/*",
+			"node_modules/**/*"
+		],
+		"publish": {
+			"provider": "custom",
+			"repo": "https://github.com/Loopring/loopring_sdk",
+			"owner": "Loopring Dev Team"
+		}
+	},
+	"scripts": {
+		"build": "tsc --build"
+	},
+	"dependencies": {
+		"@loopring-web/loopring-sdk": "^2.0.9"
+	}
+}
