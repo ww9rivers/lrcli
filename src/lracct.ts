@@ -35,10 +35,10 @@ export const LOOPRING_EXPORTED_ACCOUNT = {
 };
 
 const walletAPI = new sdk.WalletAPI({ chainId });
-async function get_wallet_type (addr: string) {
-	console.log(`Address: ${addr}`)
-	return (await walletAPI.getWalletType({ wallet: addr })).walletType;
+function get_wallet_type (addr: string) {
+	console.log(`Address: ${addr}`);
+	return walletAPI.getWalletType({ wallet: addr });
 }
-console.log("CFWalletType: ", get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.addressCF));
-console.log("EOAWalletType: ", get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.address));
-console.log("ContractWalletType: ", get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.addressContractWallet));
+get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.addressCF).then(x => console.log("CFWalletType:", x.walletType));
+get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.address).then(x => console.log("EOAWalletType:", x.walletType));
+get_wallet_type(LOOPRING_EXPORTED_ACCOUNT.addressContractWallet).then(x => console.log("ContractWalletType:", x.walletType));
